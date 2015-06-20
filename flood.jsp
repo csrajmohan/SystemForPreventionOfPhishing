@@ -1,0 +1,46 @@
+<%@ page import="Appn.*;" %>
+
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="default.css" rel="stylesheet" type="text/css" />
+<title>username
+signout</title>
+<script language=javascript >
+
+function backk()
+{
+ history.back();
+}
+
+</script>
+</head>
+
+<body>
+<div id="header">
+	<div id="logo">
+		<h1><a href="#">Pshark</a></h1>
+		<p></p>
+	</div>
+</div>
+<form method="post">
+<div style="position: absolute; width: 71px; height: 28px; z-index: 1; left: 897px; top: 167px" id="layer9">
+<input type=button name=b onclick="backk()" style="font-family: Lucida Calligraphy; font-weight: bold; width: 70; height: 27; border: 1px solid #FFFFFF; background-image: url('image/pre.gif')"></div>
+
+<%
+
+	String msg = session.getAttribute("milmsg").toString();
+	msg=msg.substring(msg.indexOf("<a"),msg.length());
+	String current=msg.substring(0,msg.indexOf("/a>")+3);
+	String act=current.substring(0,current.indexOf(">"));
+	act=act.substring(act.indexOf("=")+1,act.length());
+	out.println(act);
+	Appn.HtmlReader hread = new Appn.HtmlReader();
+	hread.read_url(act);
+	out.println(act);
+%>
+</form>
+</body>
+
+</html>
